@@ -1,6 +1,12 @@
+import EditHero from '@/components/blocks/Hero/EditHero'
+import { db } from '@/db/intex'
 
-export default function page() {
+export default async function page() {
+  const [hero] = await db.hero.findMany()
+
   return (
-    <div>page</div>
+    <div>
+      <EditHero hero={hero} />
+    </div>
   )
 }
