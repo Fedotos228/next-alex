@@ -6,7 +6,7 @@ export default async function page() {
 
   return (
     <div>
-      <EditHero hero={hero} />
+      {hero && <EditHero hero={hero} />}
     </div>
   )
 }
