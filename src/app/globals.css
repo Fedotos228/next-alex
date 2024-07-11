@@ -71,6 +71,17 @@
       @apply border-border;
     }
     body {
-      @apply bg-background text-foreground;
+      @apply bg-background text-white;
+    }
+
+    .shadow-custom {
+      box-shadow: 0px 4px 91px 0px #7301B126;
+      border: 1px solid;
+      border-image-source: linear-gradient(94.39deg, rgba(255, 255, 255, 0.4) 1.71%, rgba(255, 255, 255, 0.3) 99.59%);
+      border-image-slice: 1;
+    }
+
+    .yellow-gradient{
+      background: linear-gradient(180deg, #FFE27C 0%, #FFC703 100%);
     }
   }

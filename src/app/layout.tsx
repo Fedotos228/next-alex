@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
 
+import Footer from '@/components/layout/Footer'
+import Header from '@/components/layout/Header'
 import { cn } from '@/lib/utils'
-import { Inter as FontSans } from "next/font/google"
+import { Raleway } from "next/font/google"
 import "./globals.css"
 
 
-const fontSans = FontSans({
+const fontSans = Raleway({
   subsets: ["latin"],
   variable: "--font-sans",
 })
@@ -24,10 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-[#53067A] font-sans antialiased",
           fontSans.variable
         )}
-      >{children}</body>
+      >
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
