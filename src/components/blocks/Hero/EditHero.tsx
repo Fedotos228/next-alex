@@ -26,7 +26,7 @@ export default function EditHero({ hero }: { hero: Hero }) {
   return (
     <div>
       <h1>Edit Hero</h1>
-      <form action={editHero} className='bg-blue-900 p-6'>
+      <form action={(formData) => editHero(formData, hero.id)} className='bg-blue-900 p-6'>
         <label htmlFor="title" className='text-white'>
           Title
           <input
