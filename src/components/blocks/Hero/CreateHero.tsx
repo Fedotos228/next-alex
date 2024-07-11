@@ -1,38 +1,35 @@
 'use client'
 
-import { editHero } from '@/actions/edit-hero'
-import type { Hero } from '@prisma/client'
+import { createHero } from '@/actions/create-hero'
 import React from 'react'
 
-export default function EditHero({ hero }: { hero: Hero }) {
-  const [heroData, setHeroData] = React.useState<Hero>(hero)
+export default function CreateHero() {
+  const [hero, setHero] = React.useState({
+    title: '',
+    subtitle: '',
+    image: ''
+  })
 
   const handleSetTitle = (title: string) => {
-    if (heroData) {
-      setHeroData({ ...heroData, title })
-    }
+    setHero({ ...hero, title })
   }
   const handleSetSubTitle = (subtitle: string) => {
-    if (heroData) {
-      setHeroData({ ...heroData, subtitle })
-    }
+    setHero({ ...hero, subtitle })
   }
   const handleSetImage = (image: string) => {
-    if (heroData) {
-      setHeroData({ ...heroData, image })
-    }
+    setHero({ ...hero, image })
   }
 
   return (
     <div>
-      <h1>Edit Hero</h1>
-      <form action={editHero} className='bg-blue-900 p-6'>
+      <h1>Create Hero</h1>
+      <form action={createHero} className='bg-blue-900 p-6'>
         <label htmlFor="title" className='text-white'>
           Title
           <input
             type="text"
             name='title'
-            value={heroData.title ? heroData.title : ''}
+            value={hero.title}
             onChange={(event) => handleSetTitle(event.target.value)}
             className='text-white bg-transparent border p-3 rounded-md border-white w-full'
           />
@@ -42,7 +39,7 @@ export default function EditHero({ hero }: { hero: Hero }) {
           <input
             type="text"
             name='subtitle'
-            value={heroData.subtitle ? heroData.subtitle : ''}
+            value={hero.subtitle}
             onChange={(event) => handleSetSubTitle(event.target.value)}
             className='text-white bg-transparent border p-3 rounded-md border-white w-full'
           />
@@ -52,7 +49,7 @@ export default function EditHero({ hero }: { hero: Hero }) {
           <input
             type="text"
             name='image'
-            value={heroData.image ? heroData.image : ''}
+            value={hero.image}
             onChange={(event) => handleSetImage(event.target.value)}
             className='text-white bg-transparent border p-3 rounded-md border-white w-full'
           />

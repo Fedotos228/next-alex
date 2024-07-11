@@ -1,3 +1,4 @@
+import CreateHero from '@/components/blocks/Hero/CreateHero'
 import EditHero from '@/components/blocks/Hero/EditHero'
 import { db } from '@/db/intex'
 
@@ -6,7 +7,7 @@ export default async function page() {
 
   return (
     <div>
-      {hero && <EditHero hero={hero} />}
+      {hero ? <EditHero hero={hero} /> : <CreateHero />}
     </div>
   )
 }
